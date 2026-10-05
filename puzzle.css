@@ -1,0 +1,862 @@
+/* ==========================================================================
+   독도 사진 퍼즐 맞추기 대회 스타일시트 (puzzle.css)
+   ========================================================================== */
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+/* Control Panel */
+.puzzle-control-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.puzzle-stats-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.puzzle-stat-pill {
+  flex: 1;
+  min-width: 130px;
+  background: rgba(10, 20, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.puzzle-stat-pill.highlight-pill {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.puzzle-stat-pill.highlight-pill .pill-val {
+  color: #34d399;
+}
+
+.pill-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.pill-val {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: -0.02em;
+}
+
+/* Hints Panel */
+.puzzle-hints-panel {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hint-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.hint-pill-btn:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+}
+
+.hint-badge {
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-weight: 800;
+}
+
+.hint-badge.on {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.hint-badge.off {
+  background: rgba(148, 163, 184, 0.25);
+  color: #94a3b8;
+}
+
+.hint-pill-btn.refresh-btn {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+}
+
+.hint-pill-btn.refresh-btn:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+/* Main Puzzle Workspaces Root */
+.puzzle-workspace-root {
+  width: 100%;
+}
+
+/* Elementary Dual Workspace (Left: 16 Tray Pieces -> Right: 16 Target Slots) */
+.elementary-dual-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .elementary-dual-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dual-workspace-col {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dual-workspace-col.tray-col {
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.dual-workspace-col.target-col {
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.workspace-col-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.col-step-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.col-step-badge.blue-step {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.col-step-badge.green-step {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+.col-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.col-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.col-desc {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Tray & Target Board Variants */
+.tray-board {
+  background: #040914;
+  border: 1.5px dashed rgba(56, 189, 248, 0.25);
+}
+
+.target-board {
+  background: #040914;
+  border: 1.5px solid rgba(52, 211, 153, 0.35);
+}
+
+/* Empty Tray Slot Placeholder */
+.tray-slot-placeholder {
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+/* Empty Target Slot */
+.target-slot-empty {
+  position: relative;
+  border-radius: 8px;
+  background: rgba(10, 20, 38, 0.6);
+  border: 1.5px dashed rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.target-slot-empty:hover, .target-slot-empty.drag-over {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: #38bdf8;
+  transform: scale(1.02);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.slot-num-guide {
+  display: none !important;
+}
+
+/* Selected piece in tray or board */
+.puzzle-tile.selected-for-placement {
+  transform: translateY(-4px) scale(1.05);
+  border: 2.5px solid #facc15 !important;
+  box-shadow: 0 0 22px rgba(250, 204, 21, 0.8) !important;
+  z-index: 10;
+  animation: pulseGlow 1.2s infinite alternate ease-in-out;
+}
+
+/* Middle/High School Slide Workspace */
+.slide-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.puzzle-board-container {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.puzzle-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guide-text {
+  font-size: 0.84rem;
+  color: #93c5fd;
+  line-height: 1.5;
+}
+
+.guide-text strong {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Board Wrapper & Shuffle Banner */
+.puzzle-board-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.shuffle-banner {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(3, 10, 24, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid var(--border-glow);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.4);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 0.96rem;
+  font-weight: 800;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  animation: bannerPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.shuffle-banner.hidden {
+  display: none;
+}
+
+@keyframes bannerPop {
+  0% { transform: translate(-50%, -10px) scale(0.9); opacity: 0; }
+  100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+}
+
+.banner-spinner {
+  display: inline-block;
+  animation: spinGlow 1.2s infinite linear;
+}
+
+@keyframes spinGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 4x4 Puzzle Board */
+.puzzle-board {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #060e1d;
+  border-radius: var(--radius-md);
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 6px;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.7);
+  user-select: none;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+
+
+/* Individual Tiles */
+.puzzle-tile {
+  position: relative;
+  border-radius: 8px;
+  background-image: url('dokdo_puzzle.png');
+  background-size: 400% 400%;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.puzzle-tile:hover {
+  border-color: #38bdf8;
+  transform: scale(0.98);
+}
+
+.puzzle-tile:active {
+  cursor: grabbing;
+}
+
+.tile-num-badge {
+  display: none !important;
+}
+
+/* Correct Position Glow & Badging (비활성화: 정답 힌트 v 표시 및 녹색 테두리 제거) */
+.puzzle-tile.is-correct {
+  border-color: #334155;
+  box-shadow: none;
+}
+
+.puzzle-tile.is-correct::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Selected for Click-to-Swap (Accessibility for special ed students) */
+.puzzle-tile.selected-for-swap {
+  transform: translateY(-4px) scale(1.04);
+  border: 2.5px solid #facc15;
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.7);
+  z-index: 10;
+  animation: pulseGlow 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px rgba(250, 204, 21, 0.5); }
+  100% { box-shadow: 0 0 25px rgba(250, 204, 21, 0.95); }
+}
+
+/* Dragging & Drag Target States */
+.puzzle-tile.is-dragging {
+  opacity: 0.45;
+  transform: scale(0.95);
+  border: 2px dashed #38bdf8;
+}
+
+.puzzle-tile.drag-over {
+  transform: scale(1.05);
+  border: 2.5px solid #38bdf8;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.85);
+  z-index: 5;
+}
+
+
+
+/* Original Preview Card */
+.original-preview-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+}
+
+.preview-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.preview-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.preview-img-box {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.preview-footer-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  background: rgba(10, 20, 38, 0.5);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
+/* Win Modal Specifics */
+.puzzle-win-card {
+  max-width: 520px;
+}
+
+.completed-showcase {
+  width: 100%;
+  max-height: 240px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 14px 0 20px;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.completed-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .puzzle-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .puzzle-board-container {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .original-preview-card {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   참가자 정보 스트립 & 등록 모달 (Participant Registration)
+   ========================================================================== */
+.participant-info-strip {
+  background: rgba(14, 30, 56, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.participant-info-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p-icon {
+  font-size: 1.25rem;
+}
+
+.p-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.p-highlight {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.participant-info-right-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mode-display-badge {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mode-switch-btn {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #fbbf24;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mode-switch-btn:hover {
+  background: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+
+.course-pill-sub {
+  display: block;
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+
+.p-change-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.p-change-btn:hover {
+  background: #1e293b;
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+/* Sliding Mode Tile Styles */
+.puzzle-board.mode-slide .puzzle-tile {
+  background-image: url('dokdo_puzzle.jpg');
+}
+
+.puzzle-board.mode-drag .puzzle-tile {
+  background-image: url('dokdo_puzzle.png');
+}
+
+.puzzle-tile.empty-tile {
+  background: rgba(8, 16, 32, 0.45) !important;
+  border: 2px dashed rgba(56, 189, 248, 0.35) !important;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  cursor: default !important;
+}
+
+.puzzle-tile.empty-tile * {
+  display: none !important;
+}
+
+.puzzle-tile.movable {
+  cursor: pointer;
+  border-color: rgba(56, 189, 248, 0.55);
+}
+
+.puzzle-tile.movable:hover {
+  transform: scale(0.97);
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.65);
+}
+
+.puzzle-tile.movable::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(56, 189, 248, 0.12);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+.puzzle-tile.movable:hover::after {
+  opacity: 1;
+}
+
+/* Winner Student Badge in Win Modal */
+.winner-student-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1.5px solid #38bdf8;
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 10px 0 6px;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+/* Participant Registration Modal */
+.participant-register-card {
+  max-width: 500px;
+  text-align: left;
+}
+
+.participant-register-card .modal-heading,
+.participant-register-card .modal-subheading,
+.participant-register-card .modal-badge-wrapper {
+  text-align: center;
+}
+
+.participant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+/* Course Selection Radio Grid */
+.course-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.course-radio-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.course-radio-label input[type="radio"] {
+  display: none;
+}
+
+.course-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1d36;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.course-radio-label:hover .course-pill {
+  border-color: #38bdf8;
+  color: #ffffff;
+  background: #162a4d;
+}
+
+.course-radio-label input[type="radio"]:checked + .course-pill {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45), 0 0 12px rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Form Row Grid for Grade & Class */
+.form-row-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.form-select, .form-input {
+  background: #0a162a;
+  border: 1.5px solid #23416e;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-select:focus, .form-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+.form-select option {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.form-select option[disabled] {
+  color: #94a3b8;
+}
+
+.form-action-row {
+  margin-top: 10px;
+}
+
+.btn-primary-start {
+  width: 100%;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: 2px solid #38bdf8;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-size: 1.12rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+}
+
+.btn-primary-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.6);
+  border-color: #7dd3fc;
+}
+
+.modal-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn-modal-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-modal-home:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}

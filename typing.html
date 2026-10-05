@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="독도는 우리땅 긴글 타자연습 - 실시간 타수(CPM), 정확도 측정 및 감각적인 독도 테마의 한글 타자 연습 서비스">
+  <meta name="theme-color" content="#0a192f">
+  <title>독도는 우리땅 - 긴글 타자연습</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-badge">
+          <span class="flag-icon">🏫</span>
+          <span class="badge-text">순천선혜학교 독도교육주간</span>
+        </div>
+        <h1 class="main-title">
+          ‘독도는 우리땅’ <span class="sub-title">타자 대회</span>
+        </h1>
+      </div>
+      
+      <div class="header-actions">
+        <a href="index.html" class="action-btn home-link-btn" title="순천선혜학교 독도교육주간 메인으로 돌아가기">
+          <span class="btn-icon">🏠</span>
+          <span class="btn-label">학교 메인으로</span>
+        </a>
+        <a href="puzzle.html" class="action-btn puzzle-entry-header-btn" title="독도 사진 퍼즐 맞추기 대회로 이동">
+          <span class="btn-icon">🧩</span>
+          <span class="btn-label">사진 퍼즐 대회</span>
+        </a>
+        <button id="soundToggleBtn" class="action-btn" title="타이핑 효과음 켜기/끄기">
+          <span class="btn-icon">🔊</span>
+          <span class="btn-label">효과음 ON</span>
+        </button>
+        <button id="openLeaderboardBtn" class="action-btn" title="과정별 타자 순위표 보기">
+          <span class="btn-icon">🏆</span>
+          <span class="btn-label">순위표</span>
+        </button>
+        <button id="resetPracticeBtn" class="action-btn restart-btn" title="처음부터 다시 시작">
+          <span class="btn-icon">🔄</span>
+          <span class="btn-label">다시하기</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Dokdo Banner Card -->
+    <section class="dokdo-hero-card">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-quote">
+          <span class="quote-mark">“</span>
+          동해의 아름다운 우리 섬 독도, 한 줄 한 줄 가슴에 새기며 타자를 연습해보세요.
+          <span class="quote-mark">”</span>
+        </div>
+        <div class="hero-location-info">
+          <span>📍 경상북도 울릉군 울릉읍 독도리 (동경 131° 52′, 북위 37° 14′)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Participant Info Strip -->
+    <div class="participant-info-strip">
+      <div class="participant-info-left">
+        <span class="p-icon">🎒</span>
+        <span class="p-label">참가 학생:</span>
+        <span id="participantDisplay" class="p-highlight">참가 정보를 선택해 주세요</span>
+      </div>
+      <button id="changeParticipantBtn" class="p-change-btn" title="과정, 학년, 반 변경">
+        <span>정보 변경</span> ✏️
+      </button>
+    </div>
+
+    <!-- Main Typing Stage -->
+    <main class="typing-stage">
+      <!-- Verse Title Badge -->
+      <div class="stage-info-bar">
+        <span id="currentVerseBadge" class="verse-indicator">제 1절</span>
+        <span class="tip-guide">💡 문장을 모두 입력한 뒤 <kbd>Enter</kbd> 또는 <kbd>Space</kbd> 키를 누르면 다음 문장으로 넘어갑니다.</span>
+      </div>
+
+      <div class="typing-scroll-view">
+        <!-- Previous Completed Line Preview -->
+        <div id="prevLineBox" class="text-line prev-line hidden">
+          <span class="line-status-pill">이전</span>
+          <span id="prevLineText" class="line-content"></span>
+          <span id="prevLineCpm" class="line-cpm-badge"></span>
+        </div>
+
+        <!-- Current Active Typing Line Box -->
+        <div class="active-line-card" id="activeLineCard">
+          <div class="target-line-container">
+            <span class="line-pin">🎯</span>
+            <div id="targetTextDisplay" class="target-text-display">
+              <!-- Rendered dynamically character by character -->
+            </div>
+          </div>
+
+          <div class="input-container">
+            <input 
+              type="text" 
+              id="typingInput" 
+              class="typing-input" 
+              autocomplete="off" 
+              autocorrect="off" 
+              autocapitalize="off" 
+              spellcheck="false" 
+              placeholder="위 문장을 보고 그대로 타이핑하세요..." 
+              autofocus
+            />
+            <div class="input-actions">
+              <button id="skipLineBtn" class="small-btn" title="이 문장 건너뛰기">건너뛰기 ⏩</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Next Lines Preview -->
+        <div id="upcomingLinesBox" class="upcoming-lines-box">
+          <!-- Upcoming lines rendered here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Real-time Stats Dashboard (Bottom Positioned) -->
+    <section class="stats-dashboard">
+      <div class="stat-card">
+        <span class="stat-label">현재 타수</span>
+        <div class="stat-value-group">
+          <span id="currentCpm" class="stat-number">0</span>
+          <span class="stat-unit">타/분</span>
+        </div>
+        <div class="stat-meter">
+          <div id="cpmBar" class="stat-meter-fill"></div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">평균 타수</span>
+        <div class="stat-value-group">
+          <span id="avgCpm" class="stat-number">0</span>
+          <span class="stat-unit">타/분</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">최고 타수</span>
+        <div class="stat-value-group">
+          <span id="maxCpm" class="stat-number">0</span>
+          <span class="stat-unit">타/분</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">정확도</span>
+        <div class="stat-value-group">
+          <span id="accuracyVal" class="stat-number">100</span>
+          <span class="stat-unit">%</span>
+        </div>
+      </div>
+
+      <div class="stat-card progress-card">
+        <div class="progress-info-row">
+          <span class="stat-label">진행도</span>
+          <span id="progressLineCount" class="progress-line-text">1 / 20 행</span>
+        </div>
+        <div class="stat-value-group">
+          <span id="progressPercent" class="stat-number">0</span>
+          <span class="stat-unit">%</span>
+        </div>
+        <div class="overall-progress-bar">
+          <div id="overallProgressBarFill" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="stat-card timer-card">
+        <span class="stat-label">진행 시간</span>
+        <div class="stat-value-group">
+          <span id="timerVal" class="stat-number">00:00</span>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>독도는 대한민국 고유의 영토입니다. 🌊 East Sea of Korea</p>
+        <p class="copyright">독도는 우리땅 (작사/작곡 박문영) · 한글 타자 연습기</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Complete Result Modal -->
+  <div id="resultModal" class="modal-overlay hidden">
+    <div class="modal-card with-leaderboard">
+      <div class="modal-badge-wrapper">
+        <div class="badge-icon" id="resultGradeIcon">🏆</div>
+        <div class="badge-title" id="resultGradeTitle">독도 수호 총사령관</div>
+      </div>
+
+      <h2 class="modal-heading">독도는 우리땅 완주를 축하합니다!</h2>
+      <div class="winner-student-badge" id="winStudentBadge">초등학교 1학년 1반</div>
+      <p class="modal-subheading" id="resultVerseSummary">전체 5절을 모두 완벽하게 입력하셨습니다.</p>
+
+      <div class="result-stats-grid">
+        <div class="result-stat-box">
+          <span class="result-label">평균 타수</span>
+          <span class="result-num" id="modalAvgCpm">0</span>
+          <span class="result-unit">타/분</span>
+        </div>
+        <div class="result-stat-box">
+          <span class="result-label">최고 타수</span>
+          <span class="result-num" id="modalMaxCpm">0</span>
+          <span class="result-unit">타/분</span>
+        </div>
+        <div class="result-stat-box">
+          <span class="result-label">최종 정확도</span>
+          <span class="result-num" id="modalAccuracy">100</span>
+          <span class="result-unit">%</span>
+        </div>
+        <div class="result-stat-box">
+          <span class="result-label">총 소요 시간</span>
+          <span class="result-num" id="modalTotalTime">00:00</span>
+        </div>
+      </div>
+
+      <!-- Leaderboard Section (명예의 전당 - 초등 | 중학 | 고등 3분할 한눈에 보기) -->
+      <div class="leaderboard-section">
+        <div class="leaderboard-header">
+          <div class="leaderboard-title-row">
+            <div class="lb-title-wrap">
+              <span class="lb-icon">🏆</span>
+              <h3 class="lb-title">타자 명예의 전당</h3>
+            </div>
+          </div>
+          <div class="lb-criteria-badge">
+            <span>📌 순위 기준: ① 정확도 높은 순 ➔ ② 소요 시간 빠른 순 (동점 시 타수)</span>
+          </div>
+        </div>
+
+        <!-- 3개 과정 (초등 | 중학 | 고등) 한눈에 보는 3열 그리드 -->
+        <div class="leaderboard-3col-grid">
+          <!-- 초등 부문 -->
+          <div class="course-rank-column">
+            <div class="course-col-header">
+              <div class="course-col-title-group">
+                <span class="course-col-icon">🎒</span>
+                <span class="course-col-name">초등</span>
+              </div>
+            </div>
+            <div class="course-table-wrap">
+              <table class="course-rank-table">
+                <thead>
+                  <tr>
+                    <th style="width: 44px;">순위</th>
+                    <th>학년·반</th>
+                    <th>정확도</th>
+                    <th>시간</th>
+                    <th>타수</th>
+                  </tr>
+                </thead>
+                <tbody id="typingTbody_elem">
+                  <!-- 초등학교 순위 렌더링 -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 중학 부문 -->
+          <div class="course-rank-column">
+            <div class="course-col-header">
+              <div class="course-col-title-group">
+                <span class="course-col-icon">🏫</span>
+                <span class="course-col-name">중학</span>
+              </div>
+            </div>
+            <div class="course-table-wrap">
+              <table class="course-rank-table">
+                <thead>
+                  <tr>
+                    <th style="width: 44px;">순위</th>
+                    <th>학년·반</th>
+                    <th>정확도</th>
+                    <th>시간</th>
+                    <th>타수</th>
+                  </tr>
+                </thead>
+                <tbody id="typingTbody_mid">
+                  <!-- 중학교 순위 렌더링 -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 고등 부문 -->
+          <div class="course-rank-column">
+            <div class="course-col-header">
+              <div class="course-col-title-group">
+                <span class="course-col-icon">🎓</span>
+                <span class="course-col-name">고등</span>
+              </div>
+            </div>
+            <div class="course-table-wrap">
+              <table class="course-rank-table">
+                <thead>
+                  <tr>
+                    <th style="width: 44px;">순위</th>
+                    <th>학년·반</th>
+                    <th>정확도</th>
+                    <th>시간</th>
+                    <th>타수</th>
+                  </tr>
+                </thead>
+                <tbody id="typingTbody_high">
+                  <!-- 고등학교 순위 렌더링 -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top: 18px;">
+        <button id="modalRestartBtn" class="btn-primary">다시 연습하기 🔄</button>
+        <a href="puzzle.html" class="btn-primary" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
+          사진 퍼즐 도전 🧩
+        </a>
+        <a href="index.html" class="btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
+          홈페이지로 가기 🏠
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Participant Registration Modal (초등학교/중학교/고등학교 & 학년/반 입력) -->
+  <div id="participantModal" class="modal-overlay">
+    <div class="modal-card participant-register-card">
+      <div class="modal-badge-wrapper">
+        <div class="badge-icon">🏫</div>
+        <div class="badge-title">순천선혜학교 독도교육주간</div>
+      </div>
+
+      <h2 class="modal-heading">‘독도는 우리땅’ 타자 대회</h2>
+      <p class="modal-subheading">대회에 참가할 학생의 과정과 학년, 반을 선택해 주세요.</p>
+
+      <form id="participantForm" class="participant-form">
+        <!-- 1. 과정 선택: 초등학교, 중학교, 고등학교 (기본 선택 없음) -->
+        <div class="form-group">
+          <label class="form-label">1. 과정 선택</label>
+          <div class="course-buttons-grid">
+            <label class="course-radio-label">
+              <input type="radio" name="schoolCourse" value="초등학교" required>
+              <span class="course-pill">🎒 초등학교</span>
+            </label>
+            <label class="course-radio-label">
+              <input type="radio" name="schoolCourse" value="중학교" required>
+              <span class="course-pill">🏫 중학교</span>
+            </label>
+            <label class="course-radio-label">
+              <input type="radio" name="schoolCourse" value="고등학교" required>
+              <span class="course-pill">🎓 고등학교</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 2. 학년 및 반 선택 (기본 선택 없음) -->
+        <div class="form-row-grid">
+          <div class="form-group">
+            <label for="studentGrade" class="form-label">2. 학년</label>
+            <select id="studentGrade" class="form-select" required>
+              <option value="" disabled selected>과정을 먼저 선택하세요</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="studentClass" class="form-label">3. 반</label>
+            <select id="studentClass" class="form-select" required>
+              <option value="" disabled selected>반 선택</option>
+              <option value="1반">1반</option>
+              <option value="2반">2반</option>
+              <option value="3반">3반</option>
+              <option value="4반">4반</option>
+              <option value="5반">5반</option>
+              <option value="6반">6반</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-action-row modal-action-buttons">
+          <button type="submit" class="btn-primary-start">
+            ⌨️ 타자 대회 시작하기!
+          </button>
+          <a href="index.html" class="btn-modal-home" title="메인 홈 화면으로 돌아가기">
+            🏠 홈 화면으로 가기
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase SDK (v10 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+  <script src="ranking.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="순천선혜학교 독도교육주간 - '독도는 우리땅' 타자 대회 및 우리 영토 독도 바로 알기 온라인 교육 포털">
+  <meta name="theme-color" content="#0a192f">
+  <title>순천선혜학교 독도교육주간 | '독도는 우리땅' 타자 대회</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-page-body">
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-badge">
+          <span class="flag-icon">🏫</span>
+          <span class="badge-text">전남 특수교육의 요람 · 순천선혜학교</span>
+        </div>
+        <h1 class="main-title">
+          순천선혜학교 <span class="sub-title">독도교육주간</span>
+        </h1>
+      </div>
+      
+      <div class="header-actions">
+        <a href="typing.html" class="action-btn contest-entry-header-btn">
+          <span class="btn-icon">⌨️</span>
+          <span class="btn-label">타자 대회</span>
+        </a>
+        <a href="puzzle.html" class="action-btn puzzle-entry-header-btn">
+          <span class="btn-icon">🧩</span>
+          <span class="btn-label">사진 퍼즐 대회</span>
+        </a>
+        <button id="headerVideoBtn" class="action-btn video-entry-header-btn" title="독도 교육 영상 안내 보기">
+          <span class="btn-icon">🎬</span>
+          <span class="btn-label">독도영상 보기</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Hero Banner Section -->
+    <section class="landing-hero">
+      <div class="landing-hero-bg"></div>
+      <div class="landing-hero-overlay"></div>
+      
+      <div class="landing-hero-layout">
+        <!-- Left: 독도가 우리 땅인 이유 (특수교육대상학생 맞춤형 쉬운 설명) -->
+        <div class="landing-hero-left">
+          <div class="hero-tag">
+            <span class="tag-flag">🇰🇷</span>
+            <span>2026 순천선혜학교 독도교육주간</span>
+          </div>
+          
+          <h2 class="hero-headline">
+            동해의 아름다운 보물섬,<br>
+            <span class="highlight-text">독도는 왜 우리 땅일까요?</span>
+          </h2>
+
+          <div class="dokdo-reason-cards">
+            <!-- 이유 1 -->
+            <div class="reason-card">
+              <span class="reason-icon">📜</span>
+              <div class="reason-text">
+                <span class="reason-title">아주 오래전부터 우리 땅이에요</span>
+                <p class="reason-desc">1,500년 전 신라 시대부터 우리 조상님들이 살고 지켜온 소중한 우리 섬이에요.</p>
+              </div>
+            </div>
+
+            <!-- 이유 2 -->
+            <div class="reason-card">
+              <span class="reason-icon">👀</span>
+              <div class="reason-text">
+                <span class="reason-title">울릉도에서 눈으로도 바로 보여요</span>
+                <p class="reason-desc">맑은 날 울릉도에 서면 독도가 또렷하게 보일 만큼 우리나라와 가장 가까워요.</p>
+              </div>
+            </div>
+
+            <!-- 이유 3 -->
+            <div class="reason-card">
+              <span class="reason-icon">👮‍♂️</span>
+              <div class="reason-text">
+                <span class="reason-title">지금도 우리가 든든하게 지키고 있어요</span>
+                <p class="reason-desc">대한민국 경찰 아저씨(독도경비대)와 주민들이 살며 매일 밤낮으로 굳건히 지켜요.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 동일한 크기의 3대 주요 활동 버튼 -->
+        <div class="hero-action-column">
+          <!-- 버튼 1: 타자 대회 -->
+          <a href="typing.html" class="hero-main-cta-btn" id="startTypingBtn">
+            <div class="cta-left-group">
+              <span class="cta-icon">⌨️</span>
+              <div class="cta-text-group">
+                <span class="cta-sub">1절~5절 완주 챌린지</span>
+                <span class="cta-main">'독도는 우리땅' 타자 대회</span>
+              </div>
+            </div>
+            <span class="cta-arrow">➔</span>
+          </a>
+
+          <!-- 버튼 2: 퍼즐 대회 -->
+          <a href="puzzle.html" class="hero-main-cta-btn hero-puzzle-btn" id="startPuzzleBtn">
+            <div class="cta-left-group">
+              <span class="cta-icon">🧩</span>
+              <div class="cta-text-group">
+                <span class="cta-sub">초등: 드래그 · 중고: 슬라이딩</span>
+                <span class="cta-main">독도 사진 퍼즐 맞추기</span>
+              </div>
+            </div>
+            <span class="cta-arrow">➔</span>
+          </a>
+
+          <!-- 버튼 3: 영상 보기 -->
+          <button class="hero-main-cta-btn hero-video-btn" id="heroVideoBtn" title="독도 바로 알기 영상 안내">
+            <div class="cta-left-group">
+              <span class="cta-icon">🎬</span>
+              <div class="cta-text-group">
+                <span class="cta-sub">독도 바로 알기 영상</span>
+                <span class="cta-main">독도영상 보기</span>
+              </div>
+            </div>
+            <span class="cta-arrow">➔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Highlights Grid -->
+    <section class="landing-features-section">
+      <div class="section-title-wrap">
+        <h3 class="section-title">2026 독도교육주간 주요 대회 안내</h3>
+        <p class="section-sub">선혜학교 친구들 누구나 즐겁고 유익하게 참가할 수 있습니다</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">⌨️</div>
+          <h4 class="feature-card-title">'독도는 우리땅' 타자 대회</h4>
+          <p class="feature-card-desc">
+            '울릉도 동남쪽 뱃길따라 87K'부터 5절 '신라장군 이사부'까지, 독도의 지리와 역사가 담긴 20개 문장을 한 줄씩 입력하며 실시간 타수와 정확도를 겨룹니다.
+          </p>
+          <a href="typing.html" class="feature-tag-link">타자 대회 입장 ➔</a>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🧩</div>
+          <h4 class="feature-card-title">독도 사진 퍼즐 맞추기 대회</h4>
+          <p class="feature-card-desc">
+            초등부는 16조각을 드래그하여 맞추고, 중·고등부는 16등분 슬라이딩 퍼즐로 빈칸을 옮겨가며 아름다운 독도 전경을 완성합니다!
+          </p>
+          <a href="puzzle.html" class="feature-tag-link">사진 퍼즐 입장 ➔</a>
+        </div>
+
+        <!-- Feature Card 3: Dokdo Video -->
+        <div class="feature-card feature-video-card">
+          <div class="feature-video-thumb-preview" id="featureVideoThumbClick" style="cursor: pointer; position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; margin-bottom: 2px; border: 1.5px solid rgba(251,113,133,0.35); box-shadow: 0 4px 15px rgba(0,0,0,0.4);" title="클릭하여 독도 영상 보기">
+            <img src="dokdo_video_thumb.png" alt="독도 영상 썸네일" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+              <span style="width: 44px; height: 44px; border-radius: 50%; background: #ff0000; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255,0,0,0.6); padding-left: 3px; font-size: 1.1rem;">▶</span>
+            </div>
+            <span style="position: absolute; bottom: 6px; right: 8px; background: rgba(0,0,0,0.85); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 2px 6px; border-radius: 4px;">9:21</span>
+          </div>
+          <h4 class="feature-card-title">생생한 독도 영상 보기</h4>
+          <p class="feature-card-desc">
+            동해의 푸른 파도와 독도의 웅장한 비경을 생생한 영상으로 시청하며 독도를 더 깊이 알아봅니다.
+          </p>
+          <button id="featureVideoCardLink" class="feature-tag-link" style="border:none; background:none; cursor:pointer; color:inherit; font-size:inherit; padding:0; text-align:left;">영상 안내 및 새 창 보기 ➔</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dokdo Info Fact Card -->
+    <section class="dokdo-info-strip">
+      <div class="strip-left">
+        <span class="strip-badge">📍 독도 바로 알기</span>
+        <h4 class="strip-title">경상북도 울릉군 울릉읍 독도리 1~96번지</h4>
+        <p class="strip-desc">
+          동도와 서도, 그리고 89개의 부속 도서로 이루어진 대한민국 최동단의 보물섬입니다.
+        </p>
+      </div>
+      <div class="strip-right">
+        <a href="typing.html" class="strip-action-btn">
+          <span>대회 시작하기</span> ➔
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p><strong>순천선혜학교</strong> · 함께 배우며 꿈을 키우는 행복한 배움터 🏫</p>
+        <p class="copyright">독도는 대한민국 고유의 영토입니다. 🌊 East Sea of Korea · 2026 독도교육주간</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Dokdo Video Player Modal (기존 페이지를 그대로 살리면서 새 창으로 시청) -->
+  <div id="videoModal" class="modal-overlay hidden">
+    <div class="video-modal-card">
+      <div class="video-modal-header">
+        <div class="video-modal-title-group">
+          <span style="font-size: 1.4rem;">🎬</span>
+          <h3 class="video-modal-title">독도 바로 알기 영상 안내</h3>
+        </div>
+        <button id="closeVideoModalBtn" class="video-modal-close-btn" title="닫기">✕</button>
+      </div>
+
+      <!-- 동영상 플레이어 썸네일 (클릭 시 현재 창 유지하며 새 창 팝업으로 영상 재생) -->
+      <a href="https://youtu.be/VWYuFtVKBww?si=NOJyYCTr8eu2l7Pa" target="_blank" rel="noopener noreferrer" class="video-player-link-box" id="thumbnailPlayLink" title="클릭하면 현재 페이지를 유지하며 새 창에서 영상이 열립니다">
+        <img src="dokdo_video_thumb.png" alt="우리 대한민국의 땅 독도 영상 썸네일" class="video-player-thumb-img">
+        
+        <!-- 유튜브 재생 버튼 오버레이 -->
+        <div class="video-play-overlay">
+          <div class="video-play-btn-circle">
+            <svg class="play-icon-svg" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="video-play-prompt">▶ 새 창(팝업)으로 영상 시청하기</span>
+        </div>
+        
+        <!-- 우측 하단 영상 시간 뱃지 -->
+        <span class="video-duration-badge">9:21</span>
+      </a>
+
+      <div class="video-modal-footer">
+        <div class="video-modal-desc">
+          🌊 <strong>우리 대한민국의 땅 독도 (Dokdo)</strong> · 전북특별자치도교육청
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <button id="openNewWindowActionBtn" class="video-modal-link-btn" style="background: #e11d48; color: #ffffff; border-color: #fb7185; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-weight: 800;" title="현재 페이지를 그대로 두고 독립된 새 창에서 열기">
+            <span>🎬 새 창으로 띄우기</span> ↗
+          </button>
+          <a href="https://youtu.be/VWYuFtVKBww?si=NOJyYCTr8eu2l7Pa" target="_blank" rel="noopener noreferrer" class="video-modal-link-btn" title="YouTube 새 탭에서 열기">
+            <span>YouTube 새 탭</span> ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 독도 영상 모달 및 새 창 제어
+    const videoModal = document.getElementById('videoModal');
+    const closeVideoModalBtn = document.getElementById('closeVideoModalBtn');
+    const videoBtns = [
+      document.getElementById('headerVideoBtn'),
+      document.getElementById('heroVideoBtn'),
+      document.getElementById('featureVideoThumbClick'),
+      document.getElementById('featureVideoCardLink')
+    ];
+
+    function openVideoModal() {
+      if (videoModal) videoModal.classList.remove('hidden');
+    }
+
+    function closeVideoModal() {
+      if (videoModal) videoModal.classList.add('hidden');
+    }
+
+    // 영상 전용 새 창(독립 팝업 윈도우) 띄우기 (현재 페이지는 그대로 유지됨)
+    function launchVideoPopup(e) {
+      if (e) e.preventDefault();
+      const url = "https://youtu.be/VWYuFtVKBww?si=NOJyYCTr8eu2l7Pa";
+      const w = 1120;
+      const h = 680;
+      const left = Math.max(0, Math.round((screen.width - w) / 2));
+      const top = Math.max(0, Math.round((screen.height - h) / 2));
+      const popup = window.open(url, 'dokdo_video_window', `width=${w},height=${h},top=${top},left=${left},toolbar=no,menubar=no,scrollbars=yes,resizable=yes`);
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      } else {
+        popup.focus();
+      }
+    }
+
+    videoBtns.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openVideoModal();
+        });
+      }
+    });
+
+    // 모달 내 썸네일 클릭 및 '새 창으로 띄우기' 버튼 클릭 시
+    const thumbnailPlayLink = document.getElementById('thumbnailPlayLink');
+    if (thumbnailPlayLink) {
+      thumbnailPlayLink.addEventListener('click', launchVideoPopup);
+    }
+    const openNewWindowActionBtn = document.getElementById('openNewWindowActionBtn');
+    if (openNewWindowActionBtn) {
+      openNewWindowActionBtn.addEventListener('click', launchVideoPopup);
+    }
+
+    if (closeVideoModalBtn) {
+      closeVideoModalBtn.addEventListener('click', closeVideoModal);
+    }
+
+    // 모달 배경 클릭 시 닫기
+    if (videoModal) {
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          closeVideoModal();
+        }
+      });
+    }
+
+    // ESC 키 누르면 닫기
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal && !videoModal.classList.contains('hidden')) {
+        closeVideoModal();
+      }
+    });
+  </script>
+</body>
+</html>
