@@ -41,6 +41,10 @@
           <span class="btn-icon">🧩</span>
           <span class="btn-label">사진 퍼즐 대회</span>
         </a>
+        <a href="#homeRankingSection" class="action-btn ranking-header-btn" title="실시간 대회 순위 확인">
+          <span class="btn-icon">🏆</span>
+          <span class="btn-label">대회 순위</span>
+        </a>
         <button id="headerVideoBtn" class="action-btn video-entry-header-btn" title="독도 교육 영상 안내 보기">
           <span class="btn-icon">🎬</span>
           <span class="btn-label">독도영상 보기</span>
@@ -179,6 +183,245 @@
             동해의 푸른 파도와 독도의 웅장한 비경을 생생한 영상으로 시청하며 독도를 더 깊이 알아봅니다.
           </p>
           <button id="featureVideoCardLink" class="feature-tag-link" style="border:none; background:none; cursor:pointer; color:inherit; font-size:inherit; padding:0; text-align:left;">영상 안내 및 새 창 보기 ➔</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Realtime Competition Leaderboard Section (타자 & 사진 퍼즐 실시간 순위) -->
+    <section class="home-ranking-section" id="homeRankingSection">
+      <div class="home-ranking-header">
+        <div class="ranking-top-badge">
+          <span class="live-pulse-dot"></span>
+          <span>🏆 2026 순천선혜학교 독도교육주간 명예의 전당</span>
+        </div>
+        <h3 class="home-ranking-title">대회 실시간 순위표</h3>
+        <p class="home-ranking-desc">
+          초등 · 중학 · 고등 과정별 각 학년/반의 최고 기록이 실시간으로 집계됩니다.<br>
+          우리 반의 명예를 걸고 최고 기록에 도전해 보세요!
+        </p>
+      </div>
+
+      <!-- 탭 선택기: 타자 대회 / 사진 퍼즐 / 전체 보기 -->
+      <div class="ranking-tabs-wrap">
+        <button type="button" class="ranking-tab-btn active" id="tabTypingBtn" data-target="typing">
+          <span>⌨️ '독도는 우리땅' 타자 대회</span>
+          <span class="tab-badge">타수·정확도</span>
+        </button>
+        <button type="button" class="ranking-tab-btn" id="tabPuzzleBtn" data-target="puzzle">
+          <span>🧩 독도 사진 퍼즐 맞추기</span>
+          <span class="tab-badge">시간·이동</span>
+        </button>
+        <button type="button" class="ranking-tab-btn" id="tabAllBtn" data-target="all">
+          <span>📊 두 대회 모두 보기</span>
+        </button>
+      </div>
+
+      <!-- 타자 대회 순위 패널 -->
+      <div class="ranking-tab-content" id="typingTabContent">
+        <div class="ranking-panel-box">
+          <div class="ranking-panel-header">
+            <div class="ranking-panel-title-group">
+              <span style="font-size: 1.3rem;">⌨️</span>
+              <h4 class="ranking-panel-title">'독도는 우리땅' 타자 대회 순위</h4>
+            </div>
+            <div class="lb-criteria-badge">
+              <span>📌 순위 기준: ① 정확도 높은 순 ➔ ② 소요 시간 빠른 순 (동점 시 타수)</span>
+            </div>
+          </div>
+
+          <!-- 3개 과정 (초등 | 중학 | 고등) 3열 그리드 -->
+          <div class="leaderboard-3col-grid">
+            <!-- 초등 부문 -->
+            <div class="course-rank-column">
+              <div class="course-col-header">
+                <div class="course-col-title-group">
+                  <span class="course-col-icon">🎒</span>
+                  <span class="course-col-name">초등</span>
+                </div>
+                <span class="course-col-tag">초등부</span>
+              </div>
+              <div class="course-table-wrap">
+                <table class="course-rank-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 44px;">순위</th>
+                      <th>학년·반</th>
+                      <th>정확도</th>
+                      <th>시간</th>
+                      <th>타수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="typingTbody_elem">
+                    <!-- 초등학교 타자 순위 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 중학 부문 -->
+            <div class="course-rank-column">
+              <div class="course-col-header">
+                <div class="course-col-title-group">
+                  <span class="course-col-icon">🏫</span>
+                  <span class="course-col-name">중학</span>
+                </div>
+                <span class="course-col-tag">중학부</span>
+              </div>
+              <div class="course-table-wrap">
+                <table class="course-rank-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 44px;">순위</th>
+                      <th>학년·반</th>
+                      <th>정확도</th>
+                      <th>시간</th>
+                      <th>타수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="typingTbody_mid">
+                    <!-- 중학교 타자 순위 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 고등 부문 -->
+            <div class="course-rank-column">
+              <div class="course-col-header">
+                <div class="course-col-title-group">
+                  <span class="course-col-icon">🎓</span>
+                  <span class="course-col-name">고등</span>
+                </div>
+                <span class="course-col-tag">고등부</span>
+              </div>
+              <div class="course-table-wrap">
+                <table class="course-rank-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 44px;">순위</th>
+                      <th>학년·반</th>
+                      <th>정확도</th>
+                      <th>시간</th>
+                      <th>타수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="typingTbody_high">
+                    <!-- 고등학교 타자 순위 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-ranking-footer">
+            <span style="font-size: 0.85rem; color: #94a3b8;">🏫 각 학년/반별 최고의 기록 1개씩 순위에 등록됩니다.</span>
+            <a href="typing.html" class="home-ranking-link-btn">
+              <span>⌨️ 타자 대회 참가하기</span> ➔
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 사진 퍼즐 맞추기 대회 순위 패널 -->
+      <div class="ranking-tab-content hidden" id="puzzleTabContent">
+        <div class="ranking-panel-box">
+          <div class="ranking-panel-header">
+            <div class="ranking-panel-title-group">
+              <span style="font-size: 1.3rem;">🧩</span>
+              <h4 class="ranking-panel-title">독도 사진 퍼즐 맞추기 대회 순위</h4>
+            </div>
+            <div class="lb-criteria-badge">
+              <span>📌 순위 기준: ① 소요 시간 빠른 순 ➔ ② 이동 횟수 적은 순</span>
+            </div>
+          </div>
+
+          <!-- 3개 과정 (초등 | 중학 | 고등) 3열 그리드 -->
+          <div class="leaderboard-3col-grid">
+            <!-- 초등 부문 -->
+            <div class="course-rank-column">
+              <div class="course-col-header">
+                <div class="course-col-title-group">
+                  <span class="course-col-icon">🎒</span>
+                  <span class="course-col-name">초등</span>
+                </div>
+                <span class="course-col-tag">드래그 퍼즐</span>
+              </div>
+              <div class="course-table-wrap">
+                <table class="course-rank-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 44px;">순위</th>
+                      <th>학년·반</th>
+                      <th>소요 시간</th>
+                      <th>이동 횟수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="puzzleTbody_elem">
+                    <!-- 초등학교 퍼즐 순위 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 중학 부문 -->
+            <div class="course-rank-column">
+              <div class="course-col-header">
+                <div class="course-col-title-group">
+                  <span class="course-col-icon">🏫</span>
+                  <span class="course-col-name">중학</span>
+                </div>
+                <span class="course-col-tag">슬라이딩 퍼즐</span>
+              </div>
+              <div class="course-table-wrap">
+                <table class="course-rank-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 44px;">순위</th>
+                      <th>학년·반</th>
+                      <th>소요 시간</th>
+                      <th>이동 횟수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="puzzleTbody_mid">
+                    <!-- 중학교 퍼즐 순위 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 고등 부문 -->
+            <div class="course-rank-column">
+              <div class="course-col-header">
+                <div class="course-col-title-group">
+                  <span class="course-col-icon">🎓</span>
+                  <span class="course-col-name">고등</span>
+                </div>
+                <span class="course-col-tag">슬라이딩 퍼즐</span>
+              </div>
+              <div class="course-table-wrap">
+                <table class="course-rank-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 44px;">순위</th>
+                      <th>학년·반</th>
+                      <th>소요 시간</th>
+                      <th>이동 횟수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="puzzleTbody_high">
+                    <!-- 고등학교 퍼즐 순위 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-ranking-footer">
+            <span style="font-size: 0.85rem; color: #94a3b8;">🏫 각 학년/반별 최고의 기록 1개씩 순위에 등록됩니다.</span>
+            <a href="puzzle.html" class="home-ranking-link-btn">
+              <span>🧩 사진 퍼즐 도전하기</span> ➔
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -326,6 +569,56 @@
         closeVideoModal();
       }
     });
+  </script>
+
+  <!-- Firebase SDK (v10 compat) & 실시간 랭킹 시스템 연동 -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+  <script src="ranking.js"></script>
+
+  <script>
+    // 홈 화면 실시간 순위표 탭 제어
+    const tabTypingBtn = document.getElementById('tabTypingBtn');
+    const tabPuzzleBtn = document.getElementById('tabPuzzleBtn');
+    const tabAllBtn = document.getElementById('tabAllBtn');
+    const typingTabContent = document.getElementById('typingTabContent');
+    const puzzleTabContent = document.getElementById('puzzleTabContent');
+    const rankingTabBtns = [tabTypingBtn, tabPuzzleBtn, tabAllBtn];
+
+    function setActiveTab(target) {
+      rankingTabBtns.forEach(btn => {
+        if (btn) btn.classList.toggle('active', btn.dataset.target === target);
+      });
+
+      if (target === 'typing') {
+        if (typingTabContent) typingTabContent.classList.remove('hidden');
+        if (puzzleTabContent) puzzleTabContent.classList.add('hidden');
+      } else if (target === 'puzzle') {
+        if (typingTabContent) typingTabContent.classList.add('hidden');
+        if (puzzleTabContent) puzzleTabContent.classList.remove('hidden');
+      } else if (target === 'all') {
+        if (typingTabContent) typingTabContent.classList.remove('hidden');
+        if (puzzleTabContent) puzzleTabContent.classList.remove('hidden');
+      }
+    }
+
+    if (tabTypingBtn) tabTypingBtn.addEventListener('click', () => setActiveTab('typing'));
+    if (tabPuzzleBtn) tabPuzzleBtn.addEventListener('click', () => setActiveTab('puzzle'));
+    if (tabAllBtn) tabAllBtn.addEventListener('click', () => setActiveTab('all'));
+
+    // 초기 렌더링 (로컬 캐시 즉시 렌더 및 리스너 가동)
+    function initHomeRankings() {
+      if (typeof RankingManager !== 'undefined') {
+        RankingManager.renderAllTypingLeaderboards();
+        RankingManager.renderAllPuzzleLeaderboards();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHomeRankings);
+    } else {
+      initHomeRankings();
+    }
   </script>
 </body>
 </html>
