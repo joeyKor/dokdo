@@ -20,6 +20,15 @@
   <div class="ambient-glow glow-2"></div>
 
   <div class="app-container">
+    <!-- Dokdo Day Top Ticker Announcement Bar -->
+    <aside class="dokdo-day-top-bar" id="dokdoDayTopBar" aria-label="독도의 날 기념 안내">
+      <div class="top-bar-content">
+        <span class="top-bar-badge">🇰🇷 10월 25일 독도의 날</span>
+        <span class="top-bar-text">1900년 10월 25일 대한제국 칙령 제41호 반포 기념 · 아름다운 우리 땅 독도를 함께 지키고 기억해요!</span>
+        <span class="top-bar-dday" id="dokdoDayDdayBadge">D-Day 계산 중</span>
+      </div>
+    </aside>
+
     <!-- Header -->
     <header class="header">
       <div class="header-left">
@@ -33,12 +42,292 @@
       </div>
       
       <div class="header-actions">
+        <a href="#dokdoDaySection" class="action-btn" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;" title="10월 25일 독도의 날 홍보">
+          <span class="btn-icon">🇰🇷</span>
+          <span class="btn-label">독도의 날 안내</span>
+        </a>
         <a href="#homeRankingSection" class="action-btn ranking-header-btn" title="실시간 대회 순위 확인">
           <span class="btn-icon">🏆</span>
           <span class="btn-label">실시간 순위</span>
         </a>
       </div>
     </header>
+
+    <!-- 10월 25일 독도의 날 특별 홍보 배너 섹션 (Dokdo Day Hero Promo Section) -->
+    <section class="dokdo-day-promo-section" id="dokdoDaySection" aria-label="10월 25일 독도의 날 홍보">
+      <div class="dokdo-day-card">
+        <!-- 은은한 배경 오로라 & 파도 데코 -->
+        <div class="dokdo-day-bg-glow"></div>
+        <div class="dokdo-wave-line"></div>
+
+        <!-- 좌우 상단 무궁화 데코레이션 SVG -->
+        <div class="mugunghwa-corner-deco mugunghwa-top-left" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9">
+              <!-- 잎사귀 -->
+              <path d="M20 70 C10 50 30 30 50 40 C60 45 40 65 20 70 Z" fill="#15803d" opacity="0.8"/>
+              <path d="M45 25 C30 10 55 5 70 20 C75 35 55 35 45 25 Z" fill="#16a34a" opacity="0.75"/>
+              <!-- 무궁화 꽃잎 (5장) -->
+              <circle cx="50" cy="55" r="28" fill="url(#leftFlowerPetalGrad)" opacity="0.95"/>
+              <path d="M50 30 C40 40 45 55 50 55 C55 55 60 40 50 30 Z" fill="#f43f5e" opacity="0.7"/>
+              <path d="M30 45 C40 48 48 53 50 55 C48 57 35 65 30 45 Z" fill="#e11d48" opacity="0.6"/>
+              <path d="M70 45 C60 48 52 53 50 55 C52 57 65 65 70 45 Z" fill="#e11d48" opacity="0.6"/>
+              <path d="M35 70 C42 62 48 57 50 55 C50 58 45 72 35 70 Z" fill="#be123c" opacity="0.6"/>
+              <path d="M65 70 C58 62 52 57 50 55 C50 58 55 72 65 70 Z" fill="#be123c" opacity="0.6"/>
+              <!-- 꽃술 (노란 수술) -->
+              <circle cx="50" cy="55" r="5" fill="#facc15"/>
+              <line x1="50" y1="55" x2="50" y2="44" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="50" cy="43" r="2" fill="#f59e0b"/>
+            </g>
+            <defs>
+              <radialGradient id="leftFlowerPetalGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff1f2"/>
+                <stop offset="65%" stop-color="#fbcfe8"/>
+                <stop offset="100%" stop-color="#f472b6"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="mugunghwa-corner-deco mugunghwa-top-right" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9" transform="scale(-1, 1) translate(-120, 0)">
+              <!-- 잎사귀 -->
+              <path d="M20 70 C10 50 30 30 50 40 C60 45 40 65 20 70 Z" fill="#15803d" opacity="0.8"/>
+              <path d="M45 25 C30 10 55 5 70 20 C75 35 55 35 45 25 Z" fill="#16a34a" opacity="0.75"/>
+              <!-- 무궁화 꽃잎 (5장) -->
+              <circle cx="50" cy="55" r="28" fill="url(#rightFlowerPetalGrad)" opacity="0.95"/>
+              <path d="M50 30 C40 40 45 55 50 55 C55 55 60 40 50 30 Z" fill="#f43f5e" opacity="0.7"/>
+              <circle cx="50" cy="55" r="5" fill="#facc15"/>
+              <line x1="50" y1="55" x2="50" y2="44" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="50" cy="43" r="2" fill="#f59e0b"/>
+            </g>
+            <defs>
+              <radialGradient id="rightFlowerPetalGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff1f2"/>
+                <stop offset="65%" stop-color="#fbcfe8"/>
+                <stop offset="100%" stop-color="#f472b6"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="dokdo-day-inner">
+          <!-- 좌측: 독도의 날 홍보 정보 (타이포그래피 및 설명) -->
+          <div class="dokdo-day-info">
+            <!-- 알약 뱃지 모음 -->
+            <div class="dokdo-day-badge-wrap">
+              <span class="dokdo-claim-badge">
+                <span class="claim-flag">🇰🇷</span>
+                <span class="claim-txt">독도는 우리땅!</span>
+              </span>
+              <span class="dokdo-history-pill">대한제국 칙령 제41호 (1900.10.25)</span>
+              <span class="dokdo-dday-pill" id="dokdoPromoDday">D-Day</span>
+            </div>
+
+            <!-- 메인 타이틀 (10월 25일 독도의 날) -->
+            <div class="dokdo-day-title-wrap">
+              <div class="dokdo-day-date">10월 25일</div>
+              <h2 class="dokdo-day-title">
+                독도의 날
+                <span class="dokdo-day-eng">Dokdo Day</span>
+              </h2>
+            </div>
+
+            <!-- 공식 주소 -->
+            <div class="dokdo-day-address">
+              <span class="addr-icon">📍</span>
+              <span class="addr-text"><strong>경상북도 울릉군 울릉읍 독도리</strong> (동도 98-1번지 · 서도 98-2번지)</span>
+            </div>
+
+            <!-- 설명 문구 -->
+            <p class="dokdo-day-description">
+              <strong>1900년 10월 25일</strong>, 대한제국 고종 황제가 <strong>대한제국 칙령 제41호</strong>를 공포하여 독도가 대한민국의 확고한 영토임을 공식 천명하였습니다. 동해의 푸른 파도를 품은 우리의 소중한 보물섬 독도를 온 마음으로 사랑하고 함께 지켜나가요!
+            </p>
+
+            <!-- 주요 바로가기 버튼들 -->
+            <div class="dokdo-day-actions">
+              <button type="button" class="dokdo-promo-btn btn-primary" id="openDokdoHistoryModalBtn">
+                <span class="btn-emoji">📜</span>
+                <span>'독도의 날' 유래 알아보기</span>
+              </button>
+              <a href="typing.html" class="dokdo-promo-btn btn-sub" title="'독도는 우리땅' 타자 대회 바로가기">
+                <span class="btn-emoji">⌨️</span>
+                <span>'독도는 우리땅' 타자대회</span>
+              </a>
+              <a href="puzzle.html" class="dokdo-promo-btn btn-sub" title="독도 사진 퍼즐 맞추기 바로가기">
+                <span class="btn-emoji">🧩</span>
+                <span>독도 사진 퍼즐 맞추기</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 우측: 독도 & 무궁화 & 태극기 일러스트 비주얼 아트워크 (첨부 이미지 모티브) -->
+          <div class="dokdo-day-visual">
+            <div class="dokdo-illustration-container">
+              <svg class="dokdo-illustration-svg" viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 하늘 배경 글로우 -->
+                <rect width="500" height="350" rx="20" fill="url(#dokdoSkyGrad)" opacity="0.7"/>
+                
+                <!-- 상단 햇살 효과 -->
+                <circle cx="250" cy="50" r="140" fill="url(#sunGlowGrad)" opacity="0.35"/>
+
+                <!-- 날아가는 괭이갈매기 -->
+                <g class="gull-1" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.9">
+                  <path d="M120 75 Q128 68 136 75 Q144 68 152 75"/>
+                </g>
+                <g class="gull-2" stroke="#e0f2fe" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.8">
+                  <path d="M360 85 Q366 79 372 85 Q378 79 384 85"/>
+                </g>
+
+                <!-- 푸른 동해 바다 레이어 (뒤쪽 파도) -->
+                <path d="M0 250 C120 240 220 260 340 248 C420 240 480 252 500 250 L500 350 L0 350 Z" fill="#0369a1" opacity="0.6"/>
+
+                <!-- 독도 서도 (Seodo - 가파르고 웅장한 바위섬) -->
+                <path d="M50 270 L90 205 L130 170 L170 145 L205 180 L230 270 Z" fill="url(#seodoRockGrad)"/>
+                <!-- 서도 암벽 디테일 및 수풀 -->
+                <path d="M110 185 L140 160 L160 175 L180 155 L195 210 L150 240 Z" fill="#15803d" opacity="0.75"/>
+                <path d="M90 205 L125 215 L145 260 L95 270 Z" fill="#b45309" opacity="0.6"/>
+
+                <!-- 독도 동도 (Dongdo - 등대와 경비대가 있는 섬) -->
+                <path d="M190 270 L230 185 L280 160 L340 180 L400 215 L450 270 Z" fill="url(#dongdoRockGrad)"/>
+                <!-- 동도 암벽 디테일 및 수풀 -->
+                <path d="M250 175 L285 165 L320 185 L350 200 L320 240 L260 230 Z" fill="#16a34a" opacity="0.75"/>
+                <path d="M340 180 L380 210 L390 250 L340 260 Z" fill="#9a3412" opacity="0.5"/>
+
+                <!-- 동도 정상 독도 등대 & 경비대 건물 -->
+                <rect x="270" y="142" width="16" height="22" rx="2" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+                <polygon points="278,132 272,142 284,142" fill="#ef4444"/>
+                <circle cx="278" cy="138" r="3.5" fill="#fef08a"/>
+                <!-- 등대 불빛 광채 -->
+                <polygon points="278,138 230,110 230,150" fill="url(#lighthouseLightGrad)" opacity="0.4"/>
+
+                <!-- 태극기 깃대 & 자랑스러운 태극기 (바람에 펄럭임) -->
+                <!-- 깃대 -->
+                <line x1="298" y1="120" x2="298" y2="165" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- 국기봉 (금색) -->
+                <circle cx="298" cy="119" r="2.5" fill="#f59e0b"/>
+
+                <!-- 펄럭이는 태극기 (Waving Korean Flag) -->
+                <g class="flag-waving" transform="translate(298, 120)">
+                  <!-- 깃면 (흰색 바탕) -->
+                  <rect x="0" y="0" width="38" height="24" rx="1.5" fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.3))"/>
+                  <rect x="0" y="0" width="38" height="24" rx="1.5" stroke="#e2e8f0" stroke-width="0.5" fill="none"/>
+                  
+                  <!-- 태극 문양 -->
+                  <g transform="translate(19, 12)">
+                    <circle cx="0" cy="0" r="5.2" fill="#dc2626"/>
+                    <path d="M -5.2 0 A 5.2 5.2 0 0 0 5.2 0 A 2.6 2.6 0 0 0 0 0 A 2.6 2.6 0 0 1 -5.2 0 Z" fill="#2563eb"/>
+                    <circle cx="-2.6" cy="0" r="2.6" fill="#dc2626"/>
+                    <circle cx="2.6" cy="0" r="2.6" fill="#2563eb"/>
+                  </g>
+
+                  <!-- 4괘 (건·곤·감·리) 간략 미니어처 -->
+                  <!-- 건 (좌상) -->
+                  <g stroke="#1e293b" stroke-width="0.75" stroke-linecap="round">
+                    <line x1="5" y1="4" x2="10" y2="4"/>
+                    <line x1="5" y1="5.5" x2="10" y2="5.5"/>
+                    <line x1="5" y1="7" x2="10" y2="7"/>
+                  </g>
+                  <!-- 곤 (우하) -->
+                  <g stroke="#1e293b" stroke-width="0.75" stroke-linecap="round">
+                    <line x1="28" y1="17" x2="30.5" y2="17"/><line x1="31.5" y1="17" x2="34" y2="17"/>
+                    <line x1="28" y1="18.5" x2="30.5" y2="18.5"/><line x1="31.5" y1="18.5" x2="34" y2="18.5"/>
+                    <line x1="28" y1="20" x2="30.5" y2="20"/><line x1="31.5" y1="20" x2="34" y2="20"/>
+                  </g>
+                  <!-- 감 (우상) -->
+                  <g stroke="#1e293b" stroke-width="0.75" stroke-linecap="round">
+                    <line x1="28" y1="4" x2="30.5" y2="4"/><line x1="31.5" y1="4" x2="34" y2="4"/>
+                    <line x1="28" y1="5.5" x2="34" y2="5.5"/>
+                    <line x1="28" y1="7" x2="30.5" y2="7"/><line x1="31.5" y1="7" x2="34" y2="7"/>
+                  </g>
+                  <!-- 리 (좌하) -->
+                  <g stroke="#1e293b" stroke-width="0.75" stroke-linecap="round">
+                    <line x1="5" y1="17" x2="11" y2="17"/>
+                    <line x1="5" y1="18.5" x2="7.5" y2="18.5"/><line x1="8.5" y1="18.5" x2="11" y2="18.5"/>
+                    <line x1="5" y1="20" x2="11" y2="20"/>
+                  </g>
+                </g>
+
+                <!-- 동해 앞바다 물결 레이어 (전면 짙은 바다) -->
+                <path d="M0 268 C140 258 240 276 370 262 C440 254 480 265 500 264 L500 350 L0 350 Z" fill="url(#oceanGradFront)"/>
+                <!-- 하얀 파도 거품 라인 -->
+                <path d="M30 280 Q80 274 150 282 Q220 272 310 278 Q390 270 470 276" stroke="#bae6fd" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.75"/>
+                <path d="M70 298 Q140 292 230 300 Q320 290 420 296" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+                <!-- 하단 좌측 장식용 무궁화 꽃 (한국의 국화) -->
+                <g transform="translate(15, 260) scale(0.65)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.5))">
+                  <!-- 잎 -->
+                  <path d="M-10 15 C-25 0 -5 -25 20 -15 C25 10 5 15 -10 15 Z" fill="#15803d"/>
+                  <path d="M30 25 C45 10 25 -15 0 -5 C-5 20 15 25 30 25 Z" fill="#16a34a"/>
+                  <!-- 꽃잎 -->
+                  <circle cx="10" cy="5" r="28" fill="url(#promoFlowerGrad)"/>
+                  <path d="M10 -20 C0 -10 5 5 10 5 C15 5 20 -10 10 -20 Z" fill="#f43f5e" opacity="0.8"/>
+                  <!-- 꽃술 -->
+                  <circle cx="10" cy="5" r="4.5" fill="#facc15"/>
+                  <line x1="10" y1="5" x2="10" y2="-6" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round"/>
+                </g>
+
+                <!-- 하단 우측 장식용 무궁화 꽃 (한국의 국화) -->
+                <g transform="translate(445, 275) scale(0.6)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.5))">
+                  <!-- 잎 -->
+                  <path d="M-10 15 C-25 0 -5 -25 20 -15 C25 10 5 15 -10 15 Z" fill="#15803d"/>
+                  <!-- 꽃잎 -->
+                  <circle cx="10" cy="5" r="28" fill="url(#promoFlowerGrad)"/>
+                  <path d="M10 -20 C0 -10 5 5 10 5 C15 5 20 -10 10 -20 Z" fill="#f43f5e" opacity="0.8"/>
+                  <circle cx="10" cy="5" r="4.5" fill="#facc15"/>
+                  <line x1="10" y1="5" x2="10" y2="-6" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round"/>
+                </g>
+
+                <!-- 그라디언트 정의 모음 -->
+                <defs>
+                  <linearGradient id="dokdoSkyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0c2340"/>
+                    <stop offset="70%" stop-color="#143660"/>
+                    <stop offset="100%" stop-color="#1e4976"/>
+                  </linearGradient>
+
+                  <radialGradient id="sunGlowGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fef08a"/>
+                    <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+                  </radialGradient>
+
+                  <linearGradient id="seodoRockGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#475569"/>
+                    <stop offset="50%" stop-color="#334155"/>
+                    <stop offset="100%" stop-color="#1e293b"/>
+                  </linearGradient>
+
+                  <linearGradient id="dongdoRockGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#64748b"/>
+                    <stop offset="55%" stop-color="#475569"/>
+                    <stop offset="100%" stop-color="#1e293b"/>
+                  </linearGradient>
+
+                  <linearGradient id="oceanGradFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0284c7"/>
+                    <stop offset="45%" stop-color="#0369a1"/>
+                    <stop offset="100%" stop-color="#075985"/>
+                  </linearGradient>
+
+                  <linearGradient id="lighthouseLightGrad" x1="100%" y1="50%" x2="0%" y2="50%">
+                    <stop offset="0%" stop-color="#fef08a" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+                  </linearGradient>
+
+                  <radialGradient id="promoFlowerGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="55%" stop-color="#fce7f3"/>
+                    <stop offset="100%" stop-color="#f472b6"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Main Hero Banner Section -->
     <section class="landing-hero">
@@ -447,6 +736,84 @@
     </div>
   </div>
 
+  <!-- Dokdo History Details Modal (10월 25일 독도의 날 유래 및 의미 모달) -->
+  <div id="dokdoHistoryModal" class="modal-overlay hidden" aria-labelledby="dokdoHistoryModalTitle" role="dialog" aria-modal="true">
+    <div class="dokdo-history-modal-card">
+      <div class="dokdo-history-header">
+        <div class="dokdo-history-title-group">
+          <span style="font-size: 1.5rem;">🇰🇷</span>
+          <h3 class="dokdo-history-title" id="dokdoHistoryModalTitle">10월 25일 독도의 날 유래와 역사</h3>
+        </div>
+        <button id="closeDokdoHistoryModalBtn" class="video-modal-close-btn" title="창 닫기">✕</button>
+      </div>
+
+      <div class="dokdo-history-body">
+        <!-- 칙령 제41호 하이라이트 박스 -->
+        <div class="decree-box">
+          <div class="decree-title">
+            <span>📜</span>
+            <span>대한제국 칙령 제41호 (1900년 10월 25일 제정)</span>
+          </div>
+          <p class="decree-text">
+            “제2조: 군청 위치는 태하동으로 정하고 구역은 울릉전도(鬱陵全島)와 죽도(竹島), <strong>석도(石島: 독도)</strong>를 관할할 사.”
+          </p>
+          <p class="decree-explain">
+            1900년 10월 25일, 대한제국 고종 황제는 관보를 통해 독도가 명백한 대한제국의 관할 구역임을 공식 법령으로 선포하였습니다. 이 역사적인 날을 기리기 위해 <strong>10월 25일을 '독도의 날'</strong>로 기념하고 있습니다.
+          </p>
+        </div>
+
+        <!-- 독도 4대 핵심 가치 카드 그리드 -->
+        <div class="dokdo-facts-grid">
+          <div class="dokdo-fact-card">
+            <div class="dokdo-fact-title">
+              <span>🌅</span>
+              <span>한반도 가장 동쪽 끝 영토</span>
+            </div>
+            <p class="dokdo-fact-desc">
+              대한민국 영토 중 가장 먼저 찬란한 아침 해가 떠오르는 동해의 상징이자 우리의 소중한 보물섬입니다.
+            </p>
+          </div>
+
+          <div class="dokdo-fact-card">
+            <div class="dokdo-fact-title">
+              <span>🐦</span>
+              <span>천연기념물 제336호</span>
+            </div>
+            <p class="dokdo-fact-desc">
+              수많은 괭이갈매기와 바다제비, 독도사향제비나비 등 희귀 동식물이 평화롭게 서식하는 생태계의 보고입니다.
+            </p>
+          </div>
+
+          <div class="dokdo-fact-card">
+            <div class="dokdo-fact-title">
+              <span>💎</span>
+              <span>풍부한 해양 & 미래 자원</span>
+            </div>
+            <p class="dokdo-fact-desc">
+              동해의 청정 해양심층수와 미래 친환경 청정 에너지로 주목받는 메탄하이드레이트가 매장되어 있습니다.
+            </p>
+          </div>
+
+          <div class="dokdo-fact-card">
+            <div class="dokdo-fact-title">
+              <span>👮‍♂️</span>
+              <span>독도경비대의 굳건한 수호</span>
+            </div>
+            <p class="dokdo-fact-desc">
+              대한민국 독도경비대와 독도등대 관리원, 대한민국 주민이 거주하며 24시간 철통같이 영토를 지키고 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dokdo-history-footer">
+        <button id="confirmDokdoHistoryCloseBtn" class="dokdo-history-close-btn">
+          확인 및 닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // 독도 영상 모달 및 새 창 제어
     const videoModal = document.getElementById('videoModal');
@@ -502,21 +869,88 @@
       closeVideoModalBtn.addEventListener('click', closeVideoModal);
     }
 
-    // 모달 배경 클릭 시 닫기
-    if (videoModal) {
-      videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) {
-          closeVideoModal();
-        }
+    // 독도의 날 유래 모달 제어
+    const dokdoHistoryModal = document.getElementById('dokdoHistoryModal');
+    const openDokdoHistoryModalBtn = document.getElementById('openDokdoHistoryModalBtn');
+    const closeDokdoHistoryModalBtn = document.getElementById('closeDokdoHistoryModalBtn');
+    const confirmDokdoHistoryCloseBtn = document.getElementById('confirmDokdoHistoryCloseBtn');
+
+    function openDokdoHistoryModal() {
+      if (dokdoHistoryModal) dokdoHistoryModal.classList.remove('hidden');
+    }
+
+    function closeDokdoHistoryModal() {
+      if (dokdoHistoryModal) dokdoHistoryModal.classList.add('hidden');
+    }
+
+    if (openDokdoHistoryModalBtn) {
+      openDokdoHistoryModalBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openDokdoHistoryModal();
       });
     }
 
-    // ESC 키 누르면 닫기
+    if (closeDokdoHistoryModalBtn) {
+      closeDokdoHistoryModalBtn.addEventListener('click', closeDokdoHistoryModal);
+    }
+    if (confirmDokdoHistoryCloseBtn) {
+      confirmDokdoHistoryCloseBtn.addEventListener('click', closeDokdoHistoryModal);
+    }
+
+    // 모달 배경 클릭 시 닫기
+    if (videoModal) {
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeVideoModal();
+      });
+    }
+    if (dokdoHistoryModal) {
+      dokdoHistoryModal.addEventListener('click', (e) => {
+        if (e.target === dokdoHistoryModal) closeDokdoHistoryModal();
+      });
+    }
+
+    // ESC 키 누르면 열린 모달 닫기
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && videoModal && !videoModal.classList.contains('hidden')) {
-        closeVideoModal();
+      if (e.key === 'Escape') {
+        if (videoModal && !videoModal.classList.contains('hidden')) closeVideoModal();
+        if (dokdoHistoryModal && !dokdoHistoryModal.classList.contains('hidden')) closeDokdoHistoryModal();
       }
     });
+
+    // 10월 25일 독도의 날 D-Day 실시간 계산 함수
+    function calculateDokdoDday() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      let targetDate = new Date(currentYear, 9, 25); // 10월 25일 (0-indexed: 9 = 10월)
+      
+      const todayZero = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const targetZero = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+      
+      const diffMs = targetZero - todayZero;
+      const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+
+      const topBadge = document.getElementById('dokdoDayDdayBadge');
+      const promoBadge = document.getElementById('dokdoPromoDday');
+
+      if (diffDays === 0) {
+        const text = "🎉 오늘(10.25)은 독도의 날!";
+        if (topBadge) topBadge.textContent = text;
+        if (promoBadge) promoBadge.textContent = "🎉 오늘(10.25) 독도의 날!";
+      } else if (diffDays > 0) {
+        const text = `독도의 날 D-${diffDays}`;
+        if (topBadge) topBadge.textContent = text;
+        if (promoBadge) promoBadge.textContent = text;
+      } else {
+        // 이미 10월 25일이 지난 경우 내년 10월 25일 계산
+        const nextYearTarget = new Date(currentYear + 1, 9, 25);
+        const nextDiffDays = Math.round((nextYearTarget - todayZero) / (1000 * 60 * 60 * 24));
+        const text = `다음 독도의 날 D-${nextDiffDays}`;
+        if (topBadge) topBadge.textContent = text;
+        if (promoBadge) promoBadge.textContent = text;
+      }
+    }
+
+    calculateDokdoDday();
   </script>
 
   <!-- Firebase SDK (v10 compat) & 실시간 랭킹 시스템 연동 -->
@@ -524,7 +958,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
   <script src="ranking.js"></script>
 
-
+  <script>
     // 초기 렌더링 (로컬 캐시 즉시 렌더 및 리스너 가동)
     function initHomeRankings() {
       if (typeof RankingManager !== 'undefined') {
